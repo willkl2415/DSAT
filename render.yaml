@@ -1,9 +1,8 @@
 services:
-services:
   - type: web
     name: checkmate-dsat
     env: python
     buildCommand: "pip install --upgrade pip && pip install -r requirements.txt"
-    startCommand: "gunicorn app:app --bind 0.0.0.0:$PORT"
+    startCommand: ".venv/bin/gunicorn app:app --bind 0.0.0.0:$PORT"
     runtime: python
     pythonVersion: 3.11
