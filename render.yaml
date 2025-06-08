@@ -3,10 +3,10 @@ services:
     name: checkmate-dsat
     runtime: python
     buildCommand: |
-      pip install -r requirements.txt
-      python preprocess_pipeline.py
-    startCommand: gunicorn app:app
+      pip install --upgrade pip && pip install -r requirements.txt
+    startCommand: python -m gunicorn app:app --bind 0.0.0.0:$PORT
     envVars:
       - key: PYTHONUNBUFFERED
         value: "true"
     plan: free
+    pythonVersion: 3.11
